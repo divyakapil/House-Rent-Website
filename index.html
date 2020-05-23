@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title> Rental House </title></head>
+<style>
+    h1{
+        text-align: center;
+        /*background-color: black;*/
+        color: peachpuff;
+        font-weight: : bold;
+        border-left-width: 0px;
+        border-right-width: 0px;
+    }
+    body{
+        background-color: teal;
+    }
+
+    ul{
+        background-color: black;
+    }
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+.row {margin: 0 -5px;}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: powderblue;
+  color: black;
+}
+
+</style>    
+<body>
+   <nav class="navb">
+  <div class="container-fluid">
+    <div class="nav-header">
+        <h1>Heaven Group Real Estate</h1>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> About<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="#">blahh</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Plans</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href={{url_for("signup")}}> <span class="glyphicon glyphicon-user"> Register</a> </span></li>
+      <li><a href={{url_for("login")}}> <span class="glyphicon glyphicon-log-in"> Login</a></span></li>
+    </ul>
+  </div>
+</nav> 
+    <br>
+<div class="row">
+  <br>
+  <div class="column">
+    <div class="card">
+        <img class="card-img-top" src="{{url_for('static',filename='h1.jpg')}}" align="center" alt="Card image" style="width:80% height:80%" />
+        <h3>Hello Villa</h3>
+        <a href="/house1" class="btn btn-primary">More..</a>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+        <img class="card-img-top" src="{{url_for('static',filename='h2.jpg')}}" align="center" alt="Card image" style="width:90% height:80%" />
+      <h3>Akbar Villa</h3>
+        <a href="/house1" class="btn btn-primary">More..</a>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    <img class="card-img-top" src="{{url_for('static',filename='h3.jpg')}}" align="center" alt="Card image" style="width:90%" />
+        <h3>Apple Door</h3>
+        <a href="/house1" class="btn btn-primary">More..</a>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+        <img class="card-img-top" src="{{url_for('static',filename='h4.jpg')}}" align="center" alt="Card image" style="width:90%" />
+      <h3>Orchard Villa</h3>
+      <p>Some text</p>
+        <a href="/house1" class="btn btn-primary">More..</a>
+    </div>
+  </div>
+</div>  
+<br>
+  <div class="column">
+    <div class="card">
+        <img class="card-img-top" src="{{url_for('static',filename='h5.jpg')}}" align="center" alt="Card image" style="width:75% "/>
+      <h3>Woodlands</h3>
+        <a href="/house1" class="btn btn-primary">More..</a>
+    </div>
+  </div>
+
+<div class="column">
+    <div class="card">
+        <img class="card-img-top" src="{{url_for('static',filename='h6.jpg')}}" align="center" alt="Card image" style="width:65%"/>
+      <h3>Rose Cottage</h3>
+        <a href="/house1" class="btn btn-primary">More..</a>
+    </div>
+  </div>
+  
+    <div class="column">
+    <div class="card">
+        <img class="card-img-top" src="{{url_for('static',filename='h7.jpg')}}" align="center" alt="Card image" style="width:60%"/>
+      <h3>The White House</h3>
+        <a href="/house1" class="btn btn-primary">More..</a>
+    </div>
+  </div>
+
+<div class="column">
+    <div class="card">
+        <img class="card-img-top" src="{{url_for('static',filename='h8.jpg')}}" align="center" alt="Card image" style="width:80%">
+      <h3>House 8</h3>
+        <a href="/house1" class="btn btn-primary">More..</a>
+    </div>
+  </div>
+ <br>
+    <br>
+  </body>
+</html>

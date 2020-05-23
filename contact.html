@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+    <title> Heaven Group Real Estate</title></head>
+    
+<style>
+
+   .sidebar{
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: inline-block;
+}
+
+.sidebar a:hover {
+  color: lightgrey;
+}
+
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+input[type=text], select {
+  width: 30%;
+  padding: 12px 10px;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+input[type=button],select{
+  width: 20%;
+  background-color: grey;
+  color: white;
+  padding: 14px 10px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 4px;
+    }
+h1,h2{
+      text-align: center;
+      color:black;
+    }
+        
+div{
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 10px;
+}   
+body{
+      background-color: lightblue;
+    }
+    .footer{
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:50px;
+   width:100%;
+   background:black;
+   color:white;
+   text-align: center;
+  }
+</style>
+<body>
+   <div class="sidebar">
+  <a href="/menu"><i class="fa fa-fw fa-home"></i>Home</a><br><br><br>
+  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Account</a><br><br><br>
+  <a href="#clients"><i class="fa fa-fw fa-user"></i> Favourites</a><br><br><br>
+  <a href="/payment"><i class="fa fa-fw fa-user"></i> Payment</a><br> <br> <br>
+  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Home Loans</a><br><br><br><br><br><br><br><br>
+  <a href="/logout"><i class="fa fa-fw fa-envelope"></i> Logout</a>
+</div>
+    <p><h1>Contact Us: 8203567812/abc@gmail.com</h1></p> 
+    <div>
+    <form action="/">
+   <h2> <label for="fname" >First Name</label>
+       <input type="text" id="fname" name="fname" required></h2><br>
+<h2> <label for="lname" >Last Name</label>
+       <input type="text" id="lname" name="lname" required></h2><br>
+       <h2> <label for="contact" >Mobile No.</label>
+       <input type="text" id="contact" name="contact" required></h2><br>
+       <h2> <label for="subject" >Subject</label>
+       <input type="text" id="subject" name="subject" required></h2>
+    <h2><input type="button" value="Submit"></h2>
+        
+    </form>
+    </div>
+
+<div class="footer">@created my Divya Kapil</div>
+</body>
+</html>

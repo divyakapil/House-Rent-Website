@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<title>Rent House</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+<title>Heaven Goup Real Estate</title></head>
+<style>
+h1{
+  text-align: center;
+    color: pink;
+}
+    h2{
+      text-align: left;
+      color:white;
+      background-color: black;
+    }        
+
+    ul{
+        background-color: black;
+    }
+    body{
+        background-color: skyblue;
+    }
+    
+  .sidebar{
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: inline-block;
+}
+
+.sidebar a:hover {
+  color: lightgrey;
+}
+
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  padding: 30px;
+}
+
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  background-color: thistle;
+}
+ th {
+  padding: 6px;
+  text-align:left; 
+  padding-top: 5px;
+}
+td{
+  padding-left: 20px;
+  text-align: left;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 9px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 30px;
+}
+
+.column img {
+  margin-top: 0px;
+  vertical-align: middle;
+  width: 180%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.wrapper {width: 1000px /* width of your table*/;margin:5px auto;}
+    
+.footer{
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:50px;
+   width:100%;
+   background:black;
+   color:white;
+   text-align: center;
+  }
+  
+</style>
+<body>
+  <div class="sidebar">
+  <a href="/menu"><i class="fa fa-fw fa-home"></i>Home</a><br><br><br>
+  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Account</a><br><br><br>
+  <a href="#clients"><i class="fa fa-fw fa-user"></i> Favourites</a><br><br><br>
+  <a href="#clients"><i class="fa fa-fw fa-user"></i> Payment</a><br> <br> <br>
+  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Home Loans</a><br><br><br><br><br><br><br><br>
+  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Logout</a>
+</div>
+   <h1 align="center">Hello Villa</h1>
+ <div class="main">
+<div class="row">
+  <div class="column">
+    <img src="{{url_for('static',filename='h3.2.jpg')}}">
+   <img src="{{url_for('static',filename='h2.2.jpg')}}">
+    </div>
+  <div class="column">
+    <img src="{{url_for('static',filename='h4.1.jpg')}}">
+    <img src="{{url_for('static',filename='h4.3.jpg')}}">
+    </div>
+    <div class="column">
+    <img src="{{url_for('static',filename='h2.1.jpg')}}">
+   <img src="{{url_for('static',filename='h3.3.jpg')}}">
+    </div>
+<div class="wrapper">
+<table style="width:90%">
+  <tr>
+    <th>Address</th>
+    <td>202,Hello Villa,Sec-5,Plot No-1,Andheri(W)</td>
+  </tr>
+  <tr>
+    <th rowspan="2">Telephone</th>
+    <td>55577854</td>
+  </tr>
+  <tr>
+    <td>55577855</td>
+  </tr>
+  <tr>
+    <th> Rent</th>
+    <td>Rs. 20,000</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2"> Rooms</th>
+    <td>3BHk</td>
+  </tr>
+  <tr>
+    <td>Furnished</td>
+  </tr>
+
+  <tr>
+    <th> Facilities</th>
+    <td>Gym,Swimming Pool,Club house</td>
+  </tr>
+   
+   <tr>
+    <th>Aminities</th>
+    <td>Near to metro Station</td>
+  </tr>
+</table>
+    </div>
+    </div>
+    </div>
+  <br>
+<div class="footer">@created my Divya Kapil</div>
+</body>
+</html>
