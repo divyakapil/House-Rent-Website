@@ -3,6 +3,7 @@ from flask import *
 import pymongo
 from pymongo import MongoClient
 app = Flask(__name__)
+app.secret_key = "abc"  
 
 #CONNECTION_STRING = "mongodb+srv://divya:divyakapil@cluster0-cyu9f.mongodb.net/test?retryWrites=true&w=majority"
 #client = pymongo.MongoClient(CONNECTION_STRING)
@@ -15,7 +16,10 @@ col = db['collection']
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    if(session['logged_in']):
+        return render_template('index.html',uname=session['name'])
+    else:
+        return render_template('index.html',uname='Login')
 
 @app.route('/login')
 def login():
@@ -28,7 +32,10 @@ def login1():
         password=request.form['pswd']
         x=col.find_one({'username':username}) #this finds data of that username
         if(x):
-            if(x['password']==password):   #password match
+            if(x['password']==password):
+                #password match, here i will put two things in session
+                session['logged_in']=True;
+                session['name']=username;
                 return redirect(url_for('home'))
             else:
                 print("Wrong Password")
@@ -41,6 +48,7 @@ def login1():
 
 @app.route('/logout')    
 def logout():
+    session['logged_in']=False
     return render_template('logout.html')
 
 
@@ -75,19 +83,22 @@ def successreg():
         x = col.insert_one({'username':username,'password':password,'address':address,'contact':contact,'emailid':emailid})   #insert that username and password to database
         if(x):                                  #if successful send to home page
             print("Successfully registered")    
-            return render_template("index.html")
+            return redirect(url_for('home'))
         else:                                   #if unsuccesful send to register page
             print("Unsuccessful register")
             return render_template("signup.html")
     return render_template("signup.html")    
     
 @app.route('/house1')
-def house1():
-    return render_template('house1.html')
+def house1():#this shud be restricted ok
+    if(session['logged_in']==True):
+        return render_template('house1.html')
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/menu')
 def menu():
-    return render_template('index.html')    
+    return redirect(url_for('home'))
 @app.route('/pay1')
 def pay1():
     return render_template('pay1.html')
