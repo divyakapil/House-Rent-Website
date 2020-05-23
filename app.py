@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 from flask import *
 import pymongo
 from pymongo import MongoClient
-import db
 app = Flask(__name__)
 
 #CONNECTION_STRING = "mongodb+srv://divya:divyakapil@cluster0-cyu9f.mongodb.net/test?retryWrites=true&w=majority"
@@ -12,7 +11,7 @@ app = Flask(__name__)
 
 cluster = MongoClient("mongodb+srv://divya:divyakapil@cluster0-cyu9f.mongodb.net/test?retryWrites=true&w=majority")
 db = cluster['log']
-col = db['logs1']
+col = db['collection']
 
 @app.route('/')
 def home():
@@ -21,6 +20,24 @@ def home():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/login1',methods=['POST','GET'])
+def login1():
+    if request.method == 'POST':            #to check if form contains smthing or not
+        username=request.form['username']   #extract username and password from form to local variables
+        password=request.form['pswd']
+        x=col.find_one({'username':username}) #this finds data of that username
+        if(x):
+            if(x['password']==password):   #password match
+                return redirect(url_for('home'))
+            else:
+                print("Wrong Password")
+                return redirect(url_for('login'))
+        else:
+            print("User not found")
+    return render_template('login.html')
+
+
 
 @app.route('/logout')    
 def logout():
@@ -49,7 +66,13 @@ def successreg():
     if request.method == 'POST':            #to check if form contains smthing or not
         username=request.form['username']   #extract username and password from form to local variables
         password=request.form['password']
-        x = col.insert_one({'username':username,'password':password})   #insert that username and password to database
+        address=request.form['address']
+        contact=request.form['contact']
+        emailid=request.form['emailid']
+        print("\n Data received:")
+        print(username)
+        print(password)
+        x = col.insert_one({'username':username,'password':password,'address':address,'contact':contact,'emailid':emailid})   #insert that username and password to database
         if(x):                                  #if successful send to home page
             print("Successfully registered")    
             return render_template("index.html")
