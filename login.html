@@ -12,7 +12,7 @@ input[type=text], select {
   margin: 5px 0;
   border-radius: 2px;
 }
-    input[type=button],select{
+    input[type=submit],select{
   width: 20%;
   background-color: grey;
   color: white;
@@ -40,16 +40,16 @@ h2{
     
 </style>
 <body>
-    <p><h1>Login Form</h1></p>
+    <h1>Login Form</h1>
     <div>
-    <form action="#">
+    <form action="/login1" method="POST">
    <h2> <label for="username" >Username</label>
        <input type="text" id="username" name="username" required></h2>
        <br> <br>
    <h2> <label for="pswd">Password</label>
     <input type="text" id="pswd" name="pswd" required>
         <br><br></h2>
-    <h2><input type="button" value="Login"></h2>
+    <h2><input type="submit" value="Login"></h2>
         
     </form>
     </div>
