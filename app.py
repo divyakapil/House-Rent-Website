@@ -3,7 +3,15 @@ from flask import *
 import pymongo
 from pymongo import MongoClient
 app = Flask(__name__)
-app.secret_key = "abc"  
+app.secret_key = "abc" 
+#we hv to write the, idk why but write this b4 using session
+#now i have to decide, what things i need to remember thruout the pages
+#here i decided 2 things, 1. i shud know if user is logged in or not
+#2.if loggedd in then what is his name
+#so session is like array, where i decide to keep two things, toh i make two dabbas
+#1.session['logged_in'] will be True if login , or fals is not logged in
+#2. session['name'] will store the name of my user.
+
 
 #CONNECTION_STRING = "mongodb+srv://divya:divyakapil@cluster0-cyu9f.mongodb.net/test?retryWrites=true&w=majority"
 #client = pymongo.MongoClient(CONNECTION_STRING)
@@ -12,14 +20,15 @@ app.secret_key = "abc"
 
 cluster = MongoClient("mongodb+srv://divya:divyakapil@cluster0-cyu9f.mongodb.net/test?retryWrites=true&w=majority")
 db = cluster['log']
-col = db['collection']
-
+col = db['collection']#u jst hv to use new var here
+col1=db['logs1']
 @app.route('/')
 def home():
-    if(session['logged_in']):
-        return render_template('index.html',uname=session['name'])
-    else:
-        return render_template('index.html',uname='Login')
+    if(session.get('logged_in')): # if logged in, then pass logout
+        return render_template('index.html',uname=url_for('logout'),title="Logout")
+    else:#if not logged in
+        return render_template('index.html',uname=url_for('login'),title="Login")
+        #return render_template('index.html',uname='Login')
 
 @app.route('/login')
 def login():
@@ -99,6 +108,24 @@ def house1():#this shud be restricted ok
 @app.route('/menu')
 def menu():
     return redirect(url_for('home'))
+
+@app.route('/succ',methods=['POST','GET'])
+def succ():
+    if request.method == 'POST':
+        fname=request.form['fname']
+        lname=request.form['lname']
+        contact=request.form['contact']
+        subject=request.form['subject']
+        print('Data received:')
+        x=col1.insert_one({'fname':fname,'lname':lname,'contact':contact,'subject':subject})
+        if(x):
+            print("contacted")
+            return redirect(url_for('home'))
+        else:
+            print("couldnt contact")
+            return render_template('contact.html')
+    return render_template('contact.html')    
+
 @app.route('/pay1')
 def pay1():
     return render_template('pay1.html')
