@@ -100,7 +100,7 @@ def successreg():
     
 @app.route('/house1')
 def house1():#this shud be restricted ok
-    if(session['logged_in']==True):
+    if(session.get('logged_in')):
         return render_template('house1.html')
     else:
         return redirect(url_for('login'))
