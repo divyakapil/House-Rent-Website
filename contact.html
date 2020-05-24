@@ -60,7 +60,7 @@ input[type=text], select {
   margin: 5px 0;
   border-radius: 2px;
 }
-input[type=button],select{
+input[type=submit],select{
   width: 20%;
   background-color: grey;
   color: white;
@@ -102,9 +102,9 @@ body{
   <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Home Loans</a><br><br><br><br><br><br><br><br>
   <a href="/logout"><i class="fa fa-fw fa-envelope"></i> Logout</a>
 </div>
-    <p><h1>Contact Us: 8203567812/abc@gmail.com</h1></p> 
+    <h1>Contact Us: 8203567812/abc@gmail.com</h1>
     <div>
-    <form action="/">
+    <form action="/succ" method="POST">
    <h2> <label for="fname" >First Name</label>
        <input type="text" id="fname" name="fname" required></h2><br>
 <h2> <label for="lname" >Last Name</label>
@@ -113,7 +113,8 @@ body{
        <input type="text" id="contact" name="contact" required></h2><br>
        <h2> <label for="subject" >Subject</label>
        <input type="text" id="subject" name="subject" required></h2>
-    <h2><input type="button" value="Submit"></h2>
+            <h2><input type="submit" value="Submit"></h2> 
+        <!--replace button with submit always under form tags-->
         
     </form>
     </div>
